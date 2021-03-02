@@ -1,2 +1,2 @@
 # cleancode
-A summary of the Clean Code book
+A notes from the Clean Code book
