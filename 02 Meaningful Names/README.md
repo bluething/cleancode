@@ -1,4 +1,4 @@
-![Meaningful Names mind map](https://drive.google.com/file/d/1q4JVBJ-0b6ldn5HgH4eYj6WBCR-QNrNV/view?usp=sharing)
+![Meaningful Names mind map](https://drive.google.com/uc?export=view&id=1q4JVBJ-0b6ldn5HgH4eYj6WBCR-QNrNV)
 
 #### Use Intention-Revealing Names
 
