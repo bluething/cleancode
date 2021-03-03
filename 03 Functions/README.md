@@ -103,7 +103,7 @@ class Html {
 ```  
 The intent of newPage more clearly, we can get the context from the class.
 
-###### Function with one argument
+##### Function with one argument
 
 The function either:  
 1. Asking a question about the argument. Example boolean isActive(User user).
@@ -127,7 +127,7 @@ StringBuffer transform(StringBuffer in)
 What about flag argument?  
 Flag argument do more than one thing. Split the method into two if a boolean parameter adds multiple responsibilities to the method.
 
-###### Function with two arguments
+##### Function with two arguments
 
 Hard to understand because the order.  
 The order is ok if only if the order is natural.  
@@ -141,9 +141,9 @@ cartesian(int x, int y)
 // how many times have you put the actual where the expected should be? 
 assertEquals(expected, actual)
 ```  
-Consider to wrap the arguments into object, becomes monadic.  
+Consider to wrap the arguments into object, becomes monadic.
 
-###### Function with three arguments
+##### Function with three arguments
 
 Same with dyadic, consider to wrap the arguments into object, becomes monadic.
 ```java
@@ -154,7 +154,7 @@ Circle makeCircle(Point center, double radius);
 ```  
 x and y is a point.
 
-###### Argument lists
+##### Argument lists
 
 All argument must be treated identically.  
 ```java
