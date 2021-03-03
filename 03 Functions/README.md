@@ -125,8 +125,7 @@ StringBuffer transform(StringBuffer in)
 ```
 
 What about flag argument?  
-Flag argument do more than one thing. Split the method into two if a boolean parameter adds multiple responsibilities to the method.  
-See sample code above.
+Flag argument do more than one thing. Split the method into two if a boolean parameter adds multiple responsibilities to the method.
 
 ###### Function with two arguments
 
