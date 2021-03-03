@@ -24,3 +24,6 @@
 6. Have no side effect.  
 7. DRY.  
 8. Fail fast.
+
+Reference:  
+_Martin, Robert C. 2009. Clean code: a handbook of agile software craftsmanship. Upper Saddle River, NJ: Prentice Hall._
