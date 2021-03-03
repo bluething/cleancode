@@ -1,6 +1,6 @@
 ![Meaningful Names mind map](https://drive.google.com/uc?export=view&id=1d4K0ktZwhiu2hNsAHiMsL_HfjE-dYpBA)
 
-##### What is a function?
+### What is a function?
 
 1. Do something.  
 2. Answer something.  
@@ -16,7 +16,7 @@ if (set(”username”, ”unclebob”))…
 ```  
 Is there anything weird?
 
-##### Function should do one thing!
+### Function should do one thing!
 
 "one thing" mean one level of abstraction. You can keep your function small if you strict with this rule.  
 Look at this code  
@@ -60,7 +60,7 @@ To include the setups and teardowns, we include setups, then we include the test
             To search the parent…
 ```
 
-##### Use descriptive names
+### Use descriptive names
 
 Descriptive names can help us to clarify the design. The name should also be consistent.  
 Look at this function name  
@@ -77,7 +77,7 @@ Good function name is:
 
 Function names should say what they do!
 
-##### Function arguments
+### Function arguments
 
 The ideal number of arguments for a function is zero (niladic).  
 Next comes one (monadic), followed closely by two (dyadic).  
@@ -161,7 +161,7 @@ All argument must be treated identically.
 String.format(”%s worked %.2f hours.”, name, hours);
 ```
 
-##### Have no side effect
+### Have no side effect
 
 What is a side effect? Something that does a function other than take a value in and return another value or values. Hard to detect before it happen.  
 ```java
@@ -185,7 +185,7 @@ What is a side effect? Something that does a function other than take a value in
 Method checkPassword do a password matching between the input and data from a database. Inside that we can see the method not only work with a password but also with a session.  
 This make a temporal coupling. If we call checkPassword carelessly, something unexpected about session data will happen.
 
-##### Switch statement
+### Switch statement
 
 The problem:  
 1. It's large. Do more than one thing.  
@@ -240,12 +240,12 @@ public abstract class Employee {
 ```  
 It still violate OCP if we add new employee type then we change EmployeeFactoryImpl. We can make other implementation of EmployeeFactory, don't change EmployeeFactoryImpl.
 
-##### Don't repeat yourself
+### Don't repeat yourself
 
-##### Fail fast!
+### Fail fast!
 
 Functions should do one thing. Error handling is one thing. Just throw your exception to the outermost layer, let them handle it for yoy.
 
-##### Follow Edsger Dijkstra’s rules of structured programming.
+### Follow Edsger Dijkstra’s rules of structured programming.
 
 Dijkstra said that every function, and every block within a function, should have one entry and one exit. Following these rules means that there should only be one return statement in a function, no break or continue statements in a loop, and never, ever, any goto statements.
