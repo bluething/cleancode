@@ -1,3 +1,5 @@
+![Comments Mind Mao](https://drive.google.com/uc?export=view&id=1wdYmIWXleFVVgpGKhB5ucgNkBWPvLTqf)
+
 ```text
 Don't comment bad code - rewrite it
 ```  
