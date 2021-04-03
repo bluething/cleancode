@@ -26,4 +26,6 @@
 8. Fail fast.
 
 Reference:  
-_Martin, Robert C. 2009. Clean code: a handbook of agile software craftsmanship. Upper Saddle River, NJ: Prentice Hall._
+_Martin, Robert C. 2009. Clean code: a handbook of agile software craftsmanship. Upper Saddle River, NJ: Prentice Hall._  
+_Bugayenko, Yegor. 2017. Elegant Object Volume 1. CreateSpace Independent Publishing Platform; 1.0 edition (February 17, 2016)_  
+_Bugayenko, Yegor. 2017. Elegant Object Volume 2. CreateSpace Independent Publishing Platform; 1.4 edition (April 18, 2017)_
