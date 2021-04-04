@@ -35,6 +35,11 @@
 
 ### [Formatting](https://github.com/bluething/cleancode/tree/main/05%20Formatting)
 
+1. It's all about communication.  
+2. Vertical formatting is like reading a newspaper.  
+3. 80 chars width.  
+4. If we work in a team, use team rules (create it if you don't have).
+
 ### [Error Handling](https://github.com/bluething/cleancode/tree/main/07%20Error%20Handling)
 
 1. Avoid using exception for flow control.  
