@@ -1,3 +1,5 @@
+![Error Handling mind map](https://drive.google.com/uc?export=view&id=1XS0cJa9HbWmFAl0qFChAYhXeCzo8hX1u)
+
 ### Use Exceptions rather than return codes
 
 ```java
