@@ -25,6 +25,16 @@
 7. DRY.  
 8. Fail fast.
 
+### [Comments](https://github.com/bluething/cleancode/tree/main/04%20Comments)
+
+1. Don't write comment to explain your code.  
+2. Try to express our code.  
+ 2.a Give a meaningful name.  
+   2.b Put in the right context.
+3. Comments are always evolved to follow the code.
+
+### [Formatting](https://github.com/bluething/cleancode/tree/main/05%20Formatting)
+
 ### [Error Handling](https://github.com/bluething/cleancode/tree/main/07%20Error%20Handling)
 
 1. Avoid using exception for flow control.  
