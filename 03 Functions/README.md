@@ -1,4 +1,4 @@
-![Meaningful Names mind map](https://drive.google.com/uc?export=view&id=1d4K0ktZwhiu2hNsAHiMsL_HfjE-dYpBA)
+![Function mind map](https://drive.google.com/uc?export=view&id=1d4K0ktZwhiu2hNsAHiMsL_HfjE-dYpBA)
 
 ### What is a function?
 
