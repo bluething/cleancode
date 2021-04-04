@@ -25,6 +25,16 @@
 7. DRY.  
 8. Fail fast.
 
+### [Error Handling](https://github.com/bluething/cleancode/tree/main/07%20Error%20Handling)
+
+1. Avoid using exception for flow control.  
+2. Use checked exception.  
+3. Don't return NULL.  
+4. Don't pass NULL.  
+5. Use fail fast.  
+6. Don't catch until you have to.  
+7. Provide context with exception.
+
 Reference:  
 _Martin, Robert C. 2009. Clean code: a handbook of agile software craftsmanship. Upper Saddle River, NJ: Prentice Hall._  
 _Bugayenko, Yegor. 2017. Elegant Object Volume 1. CreateSpace Independent Publishing Platform; 1.0 edition (February 17, 2016)_  
