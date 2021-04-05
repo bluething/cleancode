@@ -40,6 +40,14 @@
 3. 80 chars width.  
 4. If we work in a team, use team rules (create it if you don't have).
 
+### [Object and Data Strcutures](https://github.com/bluething/cleancode/tree/main/06%20Object%20and%20Data%20Structure)
+
+1. Everything is an object is a myth.  
+2. Avoid hybrids structures (half object and half data).  
+3. Keep class field private and final.  
+4. Obey the Law of Demeter (LoD).  
+5. Don't use setter or getter.
+
 ### [Error Handling](https://github.com/bluething/cleancode/tree/main/07%20Error%20Handling)
 
 1. Avoid using exception for flow control.  
