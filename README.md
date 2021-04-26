@@ -1,4 +1,4 @@
-### A note from the Clean Code book
+### My note about Clean Code
 
 ### [Meaningful Names](https://github.com/bluething/cleancode/tree/main/02%20Meaningful%20Names)
 
