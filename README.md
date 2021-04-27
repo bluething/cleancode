@@ -58,6 +58,14 @@
 6. Don't catch until you have to.  
 7. Provide context with exception.
 
+### [Boundaries](https://github.com/bluething/cleancode/tree/main/08%20Boundaries)
+
+1. Try to encapsulate any boundary interface inside a class.  
+ 1.a. Avoid returning it or accepting it as an argument.  
+2. Learn your boundaries by writing a tests.  
+3. If your boundaries not yet available, create it.  
+ 3.a. You can use adapter pattern as a bridge when they are available to use.
+
 Reference:  
 _Martin, Robert C. 2009. Clean code: a handbook of agile software craftsmanship. Upper Saddle River, NJ: Prentice Hall._  
 _Bugayenko, Yegor. 2017. Elegant Object Volume 1. CreateSpace Independent Publishing Platform; 1.0 edition (February 17, 2016)_  
