@@ -1,3 +1,5 @@
+![System](https://drive.google.com/uc?export=view&id=1gL2azUT3S_etlGCxT-CY4tmgfAslcTbl)
+
 ### How a city works?
 
 Cities have teams of people who manage particular parts of the city, the water systems, power systems, traffic, law enforcement, building codes, and so forth. Some of those people are responsible for the big picture, while others focus on the details.  
