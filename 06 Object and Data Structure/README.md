@@ -1,4 +1,4 @@
-[Object and Data Structures mind map](https://drive.google.com/uc?export=view&id=14nmFNDNnA6x03xLniZ5OAe79z4iyg00W)
+![Object and Data Structures mind map](https://drive.google.com/uc?export=view&id=14nmFNDNnA6x03xLniZ5OAe79z4iyg00W)
 
 ### The difference between object and data structure
 
