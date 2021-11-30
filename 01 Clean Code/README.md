@@ -12,9 +12,15 @@ Have you ever been significantly impeded by bad code?
 - Rush into production.  
 - Don't have time to think a good design.  
 - Bugs were not repaired from one release to the next.  
-- Leaving technical debt. Remember LeBlanc’s law: Later equals never.
+- Leaving technical debt. Remember LeBlanc’s law: Later equals never. Treat technical debt like credit card debt.
 
 #### Impact of bad code
+
+1. More bugs.  
+2. Bad code is technical debt, and technical debt means slower and slower development.  
+3. Lowe job satisfaction. How do we deal with code created in the past?
+
+Robert Martin, "Indeed the ratio of time spent reading versus writing is well over 10 to 1. We are constantly reading old code as part of the effort to write new code therefore making it easy to read makes it easier to write."
 
 ![impact of bad code](https://github.com/bluething/cleancode/blob/main/images/effectofbadcode.png?raw=true)
 
@@ -52,3 +58,13 @@ We are author. The next time we write a line of code, remember we are an author,
 #### The Boy Scout Rule
 
 _Leave the campground cleaner than you found it._
+
+#### Who should care about clean code?
+
+1. Developers.  
+2. Test automation engineers.  
+3. Project managers. They must understand the importance of technical debt and allocate time and budget for it.
+
+#### Before go to the next chapter
+
+John Woods, "_Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live._"
