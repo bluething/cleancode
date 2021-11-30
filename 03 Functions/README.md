@@ -18,7 +18,7 @@ Is there anything weird?
 
 ### Function should do one thing!
 
-"one thing" mean one level of abstraction. You can keep your function small if you strict with this rule.  
+"one thing" mean _one level of abstraction_. You can keep your function small if you strict with this rule.  
 Look at this code  
 ```java
 public void sendMailToClients(string[] clients) {
@@ -55,9 +55,20 @@ How we can know if the function doing more than "one thing"? You can extract ano
 Read the code from top to bottom. Top level is the abstraction, infer it from the name. Read down, and we can see one level (only one) decrease of abstraction. Sample from the book  
 ```text
 To include the setups and teardowns, we include setups, then we include the test page content, and then we include the teardowns.
-    To include the setups, we include the suite setup if this is a suite, then we include the regular setup.
-        To include the suite setup, we search the parent hierarchy for the “SuiteSetUp” page and add an include statement with the path of that page.
-            To search the parent…
+
+To include the setups, we include the suite setup if this is a suite, then we include the regular setup.
+
+To include the suite setup, we search the parent hierarchy for the “SuiteSetUp” page and add an include statement with the path of that page.
+
+To search the parent…
+```
+
+```java
+public static String renderPageWithSetupsAndTeardowns(PageData pageData, boolean isSuite) throws Exception {
+     if (isTestPage(pageData))
+       includeSetupAndTeardownPages(pageData, isSuite);
+     return pageData.getHtml();
+   }
 ```
 
 ### Use descriptive names
@@ -67,7 +78,7 @@ Look at this function name
 ```text
 includeSetupAndTeardownPages, includeSetupPages, includeSuiteSetupPage, and includeSetupPage.
 ```  
-When we read those names, like reading a story.  
+When we read those names, it's like reading a story.  
 Is ok to have long descriptive name instead of short name with some comment to explain what the function does.  
 We can use naming convention here.
 
@@ -82,7 +93,7 @@ Function names should say what they do!
 The ideal number of arguments for a function is zero (niladic).  
 Next comes one (monadic), followed closely by two (dyadic).  
 Three arguments (triadic) should be avoided where possible.  
-More than three (polyadic) requires very special justification—and then shouldn’t be used anyway.  
+More than three (polyadic) requires very special justification—and then shouldn't be used anyway.  
 
 Argument ara hard. Reader need to interpret it each time they saw it. They need to understand it inside the context of function.  
 For example this method  
@@ -106,8 +117,8 @@ The intent of newPage more clearly, we can get the context from the class.
 ##### Function with one argument
 
 The function either:  
-1. Asking a question about the argument. Example boolean isActive(User user).
-2. Operating on the argument, return value. Example Entity getUser(String uid).
+1. Asking a question about the argument. Example boolean `boolean isActive(User user)`.
+2. Operating on the argument and returning it. Example Entity `User getUser(String uid)`.
 
 Less common use is as event, there is an input argument but no output argument. Use the argument to alter the state of the system.  
 ```java
@@ -135,7 +146,7 @@ The order is ok if only if the order is natural.
 // bad
 writeField(Stream output, name)
 // better
-cartesian(int x, int y)
+writeField(name)
 
 // bad but we use it
 // how many times have you put the actual where the expected should be? 
@@ -182,8 +193,8 @@ What is a side effect? Something that does a function other than take a value in
      }
    }
 ```  
-Method checkPassword do a password matching between the input and data from a database. Inside that we can see the method not only work with a password but also with a session.  
-This make a temporal coupling. If we call checkPassword carelessly, something unexpected about session data will happen.
+Method `checkPassword` do a password matching between the input and data from a database. Inside that we can see the method not only work with a password but also with a session.  
+This make a temporal coupling. If we call `checkPassword` carelessly, something unexpected about session data will happen.
 
 ### Switch statement
 
@@ -248,4 +259,5 @@ Functions should do one thing. Error handling is one thing. Just throw your exce
 
 ### Follow Edsger Dijkstra’s rules of structured programming.
 
-Dijkstra said that every function, and every block within a function, should have one entry and one exit. Following these rules means that there should only be one return statement in a function, no break or continue statements in a loop, and never, ever, any goto statements.
+Dijkstra said that every function, and every block within a function, should have one entry and one exit.  
+Following these rules means that there should only be one return statement in a function, no break or continue statements in a loop, and never, ever, any goto statements.
