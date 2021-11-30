@@ -2,7 +2,7 @@
 
 #### Use Intention-Revealing Names
 
-How do we come up with a good name? Your name must answered this question:  
+How do we come up with a good name? Your name must answer this question:  
 1. Why it exists?  
 2. What it does?  
 3. How it is used?
@@ -93,7 +93,7 @@ if (x[0] == 4)
 What if this condition is wrong and get our program into trouble. Let say instead of 4, we need 5 there. How do you find this line of code?  
 4 has no meaning, is only a number. How if we use 4 in some places in our code? how do we differentiate them?
 
-How about single letter names? Use only for local variables.  
+How about single letter names? Use only for _local_ variables.  
 The rule is _the length of a name should correspond to the size of its scope_.
 
 ##### Avoid Mental Mapping
@@ -101,14 +101,40 @@ The rule is _the length of a name should correspond to the size of its scope_.
 Clarity is the king! People reading our code don't need to translate our name into something their know.  
 Writers and readers must have the same understanding.
 
-##### How do we name a class
+##### How do we name a class?
 
 1. Use noun or noun phrase.
-2. Avoid using Manager, Processor, Data, or Info.
+2. Avoid using Manager, Processor, Data, or Info. Usually this happens when our class is responsible for delegating tasks to other classes. Find name with narrower scope. 
 
-##### How do we name a method
+Try to make class name specific. Imagine a class with a labeled box. What do you think is in there? It could be anything.  
+What if we have many boxes with vague names, and we're searching for some stuff? It will take a time to find it.  
+Why is it like that, we already labeled it? Because the label doesn't explain what's inside the box. Breaking SRP.
 
-Use verb or verb phrase.
+##### How do we name a method?
+
+1. Use verb or verb phrase.  
+2. The name should reveal intent.  
+3. Functionality fully understandable from the name.
+
+If we have to look inside the method to understand what it does then it's time to change the name.
+
+For early stage we can use this template  
+`Verb(do what) + Noun(to What) = name`  
+load + customerDetails = loadCustomerDetails()
+
+Method name anti-patterns  
+- Method does more than the name says.  
+- Name contains "and", "or", and "if".
+
+##### How do we name a variable?
+
+My personal rules:  
+- Never use a single letter or an obscure abbreviation.  
+- Always specific.  
+- Ideally, one/two words.  
+- Booleans should be prefixed with `is`.  
+- Use camelCase.  
+- Use all caps with underscores for constants.
 
 ##### Say what you mean. Mean what you say
 
