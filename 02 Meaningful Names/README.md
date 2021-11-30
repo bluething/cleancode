@@ -26,8 +26,9 @@ public List<int[]> getThem() {
      return list1;
    }
 ```  
-1. What exactly is lis1?
-2. Why we need to compare first element of theList with 4? Why we use 4?
+1. What exactly is `list1`?
+2. Why we need to compare first element of theList with 4? Why we use 4?  
+3. How would I use the list being returned?
    
 We can make it more clearly with revealing naming  
 ```java
@@ -53,15 +54,16 @@ public List<Cell> getFlaggedCells() {
 ##### Avoid Disinformation
 
 How we avoid leaving false clues that obscure the meaning of code:  
-1. Use reserved word in the appropriate context.  
-2. Avoid programmers specific word. Which one is better accountList vs accounts?
-3. Consistent spelling.
-4. Avoid lowercase L or O.
+1. Use reserved word in the appropriate context. For example, `hp`, `aix`, and `sco` would be poor variable names because they are the names of Unix platforms or variants.  
+2. Avoid programmers specific word. Which one is better `accountList` vs `accounts`?  
+3. Beware of using names which vary in small ways. `XYZControllerForEfficientHandlingOfStrings` and `XYZControllerForEfficientStorageOfStrings`
+4. Consistent spelling.
+5. Avoid lowercase L or O.
 
 ##### Make Meaningful Distinctions
 
-Always remember, different name have different meaning!  
-Then, do we need a prefix? No!. The same as the noise word, we don't need that also.  
+Always remember, _different name have different meaning!_  
+Then, do we need a prefix? No! The same as the noise word, we don't need that also.  
 Look at this code  
 ```java
 public static void copyChars(char a1[], char a2[]) {
@@ -70,9 +72,9 @@ public static void copyChars(char a1[], char a2[]) {
      }
    }
 ```  
-Do you know the meaning of a1[] or a2[]?
+Do you know the meaning of a1[] or a2[]? They provide no clue to the author’s intention.
 
-Also don't use prefix in all your classes/methods to say that they belong to a specific context. For example, you have MailingAddress class in GSD’s accounting module, and you named it GSDAccountAddress.
+Also don't use prefix in all your classes/methods to say that they belong to a specific context. For example, you have `MailingAddress` class in GSD’s accounting module, and you named it `GSDAccountAddress`.
 
 ##### Use Pronounceable Names
 
@@ -91,9 +93,13 @@ if (x[0] == 4)
 What if this condition is wrong and get our program into trouble. Let say instead of 4, we need 5 there. How do you find this line of code?  
 4 has no meaning, is only a number. How if we use 4 in some places in our code? how do we differentiate them?
 
+How about single letter names? Use only for local variables.  
+The rule is _the length of a name should correspond to the size of its scope_.
+
 ##### Avoid Mental Mapping
 
-Clarity is the king! People reading our code don't need to translate our name into something their know. Writers and readers must have the same understanding.
+Clarity is the king! People reading our code don't need to translate our name into something their know.  
+Writers and readers must have the same understanding.
 
 ##### How do we name a class
 
@@ -106,11 +112,12 @@ Use verb or verb phrase.
 
 ##### Say what you mean. Mean what you say
 
-Imagine you have a function to delete rows in a database. You name it holyHandGrenade() (you want to warn everyone). It's clear you use name like deleteItems(), everyone knows hat is delete means.
+Imagine you have a function to delete rows in a database. You name it `holyHandGrenade()` (you want to warn everyone).  
+It's clear you use name like `deleteItems()`, everyone knows hat is delete means.
 
 ##### One word per concept
 
-You want to get information to database, which one do you choose put, fetch, retrieve, or get?  
+You want to get information to database, which one do you choose `fetch`, `retrieve`, or `get`?  
 Put your attention to the semantic of the word!
 
 ##### Use Solution Domain Names
@@ -124,5 +131,79 @@ When there is no “programmer-eese” for what you’re doing, use the name fro
 ##### Add Meaningful Context
 
 You need to place names in context for your reader by enclosing them in well-named classes, functions, or namespaces.  
-For example, you have firstName, lastName, street, houseNumber, city, state, and zipcode. All of them form an address. Put them into a class called Address.  
+For example, you have `firstName`, `lastName`, `street`, `houseNumber`, `city`, `state`, and `zipcode`.  
+All of them form an address. Put them into a class called `Address`.  
 When a method has a lot of variables with an unclear context you can try to break it into smaller functions.
+
+The function name provides only part of the context, the algorithm provides the rest.
+
+```java
+   private void printGuessStatistics(char candidate, int count) {   String number;
+       String verb;
+       String pluralModifier;
+       if (count == 0) {
+         number = ”no”;
+         verb = ”are”;
+         pluralModifier = ”s”;
+       } else if (count == 1) {
+         number = ”1”;
+         verb = ”is”;
+         pluralModifier = ””;
+       } else {
+         number = Integer.toString(count);
+         verb = ”are”;
+         pluralModifier = ”s”;
+       }
+       String guessMessage = String.format(
+         ”There %s %s %s%s”, verb, number, candidate, pluralModifier
+       );
+       print(guessMessage);
+     }
+```
+
+After given a context
+
+```java
+public class GuessStatisticsMessage {
+
+     private String number;
+     private String verb;
+     private String pluralModifier;
+     
+     public String make(char candidate, int count) {
+       createPluralDependentMessageParts(count);
+        return String.format(
+          "There %s %s %s%s",
+          verb, number, candidate, pluralModifier );
+     }
+     
+     private void createPluralDependentMessageParts(int count) {
+       if (count == 0) {
+         thereAreNoLetters();
+       } else if (count == 1) {
+         thereIsOneLetter();
+       } else {
+         thereAreManyLetters(count);
+       }
+     }
+     
+     private void thereAreManyLetters(int count) {
+       number = Integer.toString(count);
+       verb = "are";
+       pluralModifier = "s";
+     }
+
+     private void thereIsOneLetter() {
+       number = "1";
+       verb = "is";
+       pluralModifier = "";
+     }
+     
+     private void thereAreNoLetters() {
+       number = "no";
+       verb = "are";
+       pluralModifier = "s";
+     }
+
+   }
+```
