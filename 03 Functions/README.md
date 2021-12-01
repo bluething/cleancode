@@ -88,6 +88,16 @@ Good function name is:
 
 Function names should say what they do!
 
+### Minimize complexity
+
+Aim for low complexity. Some complexity is fine, but if we have too much of it in a single method, then that's bad. Why? Because complexity means a higher chance of mistakes, dirty code, and bugs.
+
+### What (not) to Return
+
+Don't return:
+- `null`. They meaningless and need additional checking (added complexity).
+- Special codes (-1, 0, 1, and other). They have special meaning that need to understand by the caller.
+
 ### Function arguments
 
 The ideal number of arguments for a function is zero (niladic).  
@@ -114,7 +124,14 @@ class Html {
 ```  
 The intent of newPage more clearly, we can get the context from the class.
 
-##### Function with one argument
+Generally, _fewer method arguments is better_.
+
+#### Downside of too many arguments
+
+Increased complexity.  
+Difficult to read and understand.
+
+#### Function with one argument
 
 The function either:  
 1. Asking a question about the argument. Example boolean `boolean isActive(User user)`.
@@ -126,8 +143,9 @@ void passwordAttemptFailedNtimes(int attempts)
 ```  
 If you need to this kind of function, please choose names and contexts carefully.
 
-What about output argument? Avoid this!  
-Hard to understand. If a function is going to transform its input argument, the transformation should appear as the return value.  
+##### What about output argument?
+
+Avoid this!Hard to understand. If a function is going to transform its input argument, the transformation should appear as the return value.  
 ```java
 // bad
 void transform(StringBuffer out)
@@ -135,10 +153,12 @@ void transform(StringBuffer out)
 StringBuffer transform(StringBuffer in)
 ```
 
-What about flag argument?  
-Flag argument do more than one thing. Split the method into two if a boolean parameter adds multiple responsibilities to the method.
+##### What about flag argument?
 
-##### Function with two arguments
+Robert Martin, "Flag arguments are ugly. It immediately complicates the signature of the method, loudly proclaiming that this function does more than one thing. "  
+Split the method into two if a boolean parameter adds multiple responsibilities to the method.
+
+#### Function with two arguments
 
 Hard to understand because the order.  
 The order is ok if only if the order is natural.  
@@ -152,9 +172,9 @@ writeField(name)
 // how many times have you put the actual where the expected should be? 
 assertEquals(expected, actual)
 ```  
-Consider to wrap the arguments into object, becomes monadic.
+Consider wrapping the arguments into object, becomes monadic.
 
-##### Function with three arguments
+#### Function with three arguments
 
 Same with dyadic, consider to wrap the arguments into object, becomes monadic.
 ```java
@@ -165,7 +185,12 @@ Circle makeCircle(Point center, double radius);
 ```  
 x and y is a point.
 
-##### Argument lists
+Method with 3 or more arguments might:  
+- Do too many things. Split logic.  
+- Take too many primitive types. Create an object from those arguments.  
+- Take a boolean (flag) argument. Need to remove it.
+
+#### Argument lists
 
 All argument must be treated identically.  
 ```java
@@ -255,9 +280,40 @@ It still violate OCP if we add new employee type then we change EmployeeFactoryI
 
 ### Fail fast!
 
-Functions should do one thing. Error handling is one thing. Just throw your exception to the outermost layer, let them handle it for yoy.
+Functions should do one thing. Error handling is one thing. Just throw your exception to the outermost layer, let them handle it for you.
 
 ### Follow Edsger Dijkstra’s rules of structured programming.
 
 Dijkstra said that every function, and every block within a function, should have one entry and one exit.  
 Following these rules means that there should only be one return statement in a function, no break or continue statements in a loop, and never, ever, any goto statements.
+
+### Conditionals
+
+#### Boolean check
+
+```java
+if (!doorClosed == false) {}    x
+if (!doorClosed) {}             x
+if (!isDoorClosed) {}           x
+if (isDoorOpen) {}              v
+```  
+Don't be anti-negative.
+
+#### Complex condition
+
+```java
+//before
+if (hour > 6 && hour < 22) {}
+
+// after
+if (isDay(hour)) {} 
+private static boolean isDay(int hour){
+    return hour > 6 && hour < 22;
+}
+
+```  
+Extract it to a separate method that sounds like a true/false question and returns a Boolean.
+
+### Read more
+
+[Flag argument](https://martinfowler.com/bliki/FlagArgument.html)
