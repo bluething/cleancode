@@ -19,12 +19,13 @@ int elapsedTimeInDays;
 Do you understand what this function does?  
 ```java
 public List<int[]> getThem() {
-     List<int[]> list1 = new ArrayList<int[]>();
-     for (int[] x : theList)
-       if (x[0] == 4)
-         list1.add(x);
+    List<int[]> theList = getDataFromDB();
+    List<int[]> list1 = new ArrayList<int[]>();
+        for (int[] x : theList)
+            if (x[0] == 4)
+                list1.add(x);
      return list1;
-   }
+}
 ```  
 1. What exactly is `list1`?
 2. Why we need to compare first element of theList with 4? Why we use 4?  
@@ -164,27 +165,28 @@ When a method has a lot of variables with an unclear context you can try to brea
 The function name provides only part of the context, the algorithm provides the rest.
 
 ```java
-   private void printGuessStatistics(char candidate, int count) {   String number;
-       String verb;
-       String pluralModifier;
-       if (count == 0) {
-         number = ”no”;
-         verb = ”are”;
-         pluralModifier = ”s”;
-       } else if (count == 1) {
-         number = ”1”;
-         verb = ”is”;
-         pluralModifier = ””;
-       } else {
-         number = Integer.toString(count);
-         verb = ”are”;
-         pluralModifier = ”s”;
-       }
-       String guessMessage = String.format(
-         ”There %s %s %s%s”, verb, number, candidate, pluralModifier
-       );
-       print(guessMessage);
-     }
+    private void printGuessStatistics(char candidate, int count) {   
+        String number;
+        String verb;
+        String pluralModifier;
+        if (count == 0) {
+            number = ”no”;
+            verb = ”are”;
+            pluralModifier = ”s”;
+        } else if (count == 1) {
+            number = ”1”;
+            verb = ”is”;
+            pluralModifier = ””;
+        } else {
+            number = Integer.toString(count);
+            verb = ”are”;
+            pluralModifier = ”s”;
+        }
+        String guessMessage = String.format(
+            "There %s %s %s%s”, verb, number, candidate, pluralModifier"
+        );
+        print(guessMessage);
+    }
 ```
 
 After given a context
