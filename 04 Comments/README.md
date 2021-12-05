@@ -21,7 +21,8 @@ Which one more expressive?
 
 #### Comments are always evolved to follow the code
 
-Code changes and evolves. What if the comments don't evolve with code? The older a comment is, and the farther away it is from the code it describes.
+Code changes and evolves. What if the comments don't evolve with code? The older a comment is, and the farther away it is from the code it describes.  
+Once we are sure that the comment is incorrect, don't update it, remove it instead.
 
 ##### Before we write comments
 
@@ -45,7 +46,8 @@ Before we write this kind of comment, think about a descriptive name or move the
 ```java
    // format matched kk:mm:ss EEE, MMM dd, yyyy
    Pattern timeMatcher = Pattern.compile(“\\d*:\\d*:\\d* \\w*, \\w* \\d*, \\d*”);
-```
+```  
+To give a better context we can move this line a special class that converted the formats of dates and times.
 
 #### Explanation of intent
 
@@ -104,6 +106,11 @@ public static SimpleDateFormat makeStandardHttpDateFormat() {
 
 Don't leave TODO comments too long. Put the task into backlog in project management.
 
+Bad TODO (don't do it):  
+1. `// TODO` No information given whatsoever. Do what, with what, by whom, by when.
+2. `// TODO: Fix this` What's wrong with this code? We don't have a clue.  
+3. `// Commented out code with TODO`
+
 #### Amplification
 
 A comment may be used to amplify the importance of something that may otherwise seem inconsequential.  
@@ -124,6 +131,8 @@ Only for public API.
 
 #### Mumbling
 
+Plopping in a comment just because you feel you should or because the process requires it, is a hack.
+
 ```java
    public void loadProperties() {
      try {
@@ -135,11 +144,23 @@ Only for public API.
      }
    }
 ```  
-What the comment mean?
+What the comment mean? Who loads all the defaults? Were they loaded before the call to `loadProperties.load()`? Or did `loadProperties.load()` catch the exception, load the defaults, and then pass the exception on for us to ignore?
 
 #### Redundant
 
-The comment not more informative than the code itself. Usually we copy-paste part of code as comment.
+The comment not more informative than the code itself. Usually we copy-paste part of code as comment.  
+```java
+class Customer {
+    // customer name
+    String name;
+    int age;
+    
+    // get customer age
+    int getAge() {
+         return age;
+     }
+}
+```
 
 #### Misleading
 
@@ -158,6 +179,7 @@ The comment not (wrong) explain the code. The code said "if this close", but the
 
 #### Mandated
 
+Maybe we have heard about "every function must have a javadoc, or every variable must have a comment"  
 Not all code need comments!  
 But all code must expressive!
 
@@ -263,7 +285,15 @@ It's better to our code can express it.
 
 ##### Inobvious connection
 
-Code and comment must be tight coupled.
+Code and comment must be tight coupled.  
+```java
+    /*
+    * start with an array that is big enough to hold all the pixels
+    * (plus filter bytes), and an extra 200 bytes for header info
+    */
+   this.pngBytes = new byte[((this.width + 1) * this.height * 3) + 200];
+```  
+What is a filter byte?
 
 ##### Function header
 
